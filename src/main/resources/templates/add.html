@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
+    <title>Title</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/5.1.3/css/bootstrap.min.css">
+</head>
+<body>
+<div class="col-md-6 offset-3">
+    <h1>Add an entry</h1>
+    <form method="post" th:action="@{add}">
+        <div>
+            <label>Client Number:</label>
+            <input class="form-control" type="text" name="clientno" th:value="${loanTable.clientno}">
+            <span th:errors="${loanTable.clientno}"></span>
+        </div>
+        <div>
+            <label>Client Name:</label>
+            <input class="form-control" type="text" name="clientname" th:value="${loanTable.clientname}">
+            <span th:errors="${loanTable.clientname}"></span>
+        </div>
+        <div>
+            <label>Loan Amount:</label>
+            <input class="form-control" type="text" name="loanamount" th:value="${loanTable.loanamount}">
+            <span th:errors="${loanTable.loanamount}"></span>
+        </div>
+        <div>
+            <label>Number of years:</label>
+            <input class="form-control" type="text" name="years" th:value="${loanTable.years}">
+            <span th:errors="${loanTable.years}"></span>
+        </div>
+        <div>
+            <label>Savings Type:</label>
+            <select class="form-control" name="loantype">
+                <option value="Business">Business</option>
+                <option value="Personal">Personal</option>
+            </select>
+        </div>
+        <button type="submit" class="btn-success" th:href="@{/}">Submit</button>
+    </form>
+</div>
+</body>
+</html>
